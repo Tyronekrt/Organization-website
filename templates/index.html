@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Chepngoy Foundation</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+{% load static %}
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/chepngoy logo3.png' %}" rel="icon">
+  <link href="{% static 'assets/img/chepngoy logo3.png' %}" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+</head>
+
+<body class="index-page">
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+ <a href="index.html" class="logo d-flex align-items-center me-auto logo-container">
+ <img src="{% static 'assets/img/chepngoy logo3.png' %}"
+     alt="Chepngoy Foundation Logo"
+     class="foundation-logo img-fluid d-block d-md-inline"
+     style="height: auto; max-height: 400px; width: 100%; max-width: 150px; margin-top: 5px; position: relative;">
+
+
+
+       <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="{% url 'index' %}">Home</a></li>
+          <li><a href="{% url 'about' %}">About us</a></li>
+            <li><a href="{% url 'causes' %}">Causes</a></li>
+          <li><a href="{% url 'events' %}">Events</a></li>
+          <li><a href="{% url 'teams' %}">Team</a></li>
+          <li><a href="{% url 'causes' %}">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <a class="cta-btn" href="{% url 'starter' %}">Admin</a>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+
+      <img src="{% static 'assets/img/home.jpg' %}" alt="" data-aos="fade-in" data-aos-duration="50">
+
+      <div class="container d-flex flex-column align-items-center">
+        <h2 data-aos="fade-up" data-aos-delay="100">Hope. Empower. Thrive.</h2>
+        <p data-aos="fade-up" data-aos-delay="200">Every donation is a spark of hope, guiding the path to brighter possibilities and more resilient communities.</p>
+
+          <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
+          <a href="#about" class="btn btn-warning">Donate For Love</a>
+          </div>
+
+      </div>
+
+      </div>
+
+    </section><!-- /Hero Section -->
+
+
+      <!-- About Section -->
+    <section id="about" class="about section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Left Side: About Text -->
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2 class="fw-bold">About Us</h2>
+                    <p class="fs-5 text-muted">
+                        We are dedicated to driving positive change and enhancing the well-being of our community
+                        through consistent support and strategic action. Our mission is to promote a drug-free
+                        environment, foster sustainable employment opportunities, and provide youth with practical,
+                        real-world education.
+                    </p>
+                    <p class="fs-5 text-muted">
+                        Guided by principles of compassion, resilience, and social responsibility, we are committed
+                        to shaping a future where every individual has the opportunity to succeed. By collaborating
+                        with others, we create meaningful impact and lasting transformation.
+                    </p>
+                    <p class="fs-5 text-muted">
+                        We invite you to join us in our efforts to build a stronger, more vibrant community for all.
+                    </p>
+                </div>
+
+                <!-- Right Side: Image -->
+                <div class="col-lg-6 text-center" data-aos="fade-left">
+                    <img src="{% static 'assets/img/About-us.jpg' %}" class="img-fluid rounded shadow-lg" alt="About Us Image">
+                </div>
+            </div>
+        </div>
+    </section><!-- About Section -->
+
+
+      <!-- Causes Section -->
+   <section id="more-services" class="more-services section py-5 bg-light">
+    <style>
+        .card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-top {
+    height: 350px;
+    object-fit: cover;
+    border-bottom: 5px solid white;
+}
+
+.card-body {
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h6 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+p {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.btn-read-more {
+    background-color: #c82333;
+    color: white;
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+}
+
+.btn-read-more:hover {
+    background-color: #a71d2a;
+}
+
+
+    </style>
+  <!-- Section Title -->
+  <div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="fw-bold text-dark fs-4 border-start border-4 border-dark ps-3">
+        Causes
+      </h2>
+      <p class="text-muted ps-3">The Chepngoy Foundation empowers communities, protects nature, and inspires lasting change through love-driven actions.</p>
+    </div>
+  </div>
+</div><!-- End Section Title -->
+
+  <div class="container">
+    <div class="row g-3 justify-content-center">
+
+      <!-- Card 1: Donate for Love -->
+      <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="card shadow-sm h-100 rounded-3 service-card">
+          <img src="{% static 'assets/img/Donate-for-love.jpg' %}" class="card-img-top img-fluid rounded-top" alt="Service Image">
+          <div class="card-body text-center p-3" style="background: rgba(0, 123, 255, 0.1);">
+            <h6 class="fw-bold text-primary">Donate for Love</h6>
+            <p class="card-text small text-muted">
+              At the Chepngoy Foundation, donating out of love represents
+            </p>
+            <a href="{% url 'donate_for_love' %}" class="btn btn-primary " type="button">Read More</a>
+          </div>
+        </div>
+      </div><!-- End Card 1 -->
+
+      <!-- Card 2: Love for Humanity -->
+      <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="card shadow-sm h-100 rounded-3 service-card">
+          <img src="{% static 'assets/img/Love-for- Humanity.jpg' %}" class="card-img-top img-fluid rounded-top" alt="Service Image">
+          <div class="card-body text-center p-3" style="background: rgba(40, 167, 69, 0.1);">
+            <h6 class="fw-bold text-success">Love for Humanity</h6>
+            <p class="card-text small text-muted">
+              At the Chepngoy Foundation, our commitment to humanity lies
+            </p>
+            <a href="{% url 'love_for_humanity' %}" class="btn btn-success" type="button">Read More</a>
+          </div>
+        </div>
+      </div><!-- End Card 2 -->
+
+      <!-- Card 3: Love for Future Generations -->
+      <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="card shadow-sm h-100 rounded-3 service-card">
+          <img src="{% static 'assets/img/Love-for-future-generation.jpg' %}" class="card-img-top img-fluid rounded-top" alt="Service Image">
+          <div class="card-body text-center p-3" style="background: rgba(255, 193, 7, 0.1);">
+            <h6 class="fw-bold text-warning">Love for Future Generations</h6>
+            <p class="card-text small text-muted">
+              At the Chepngoy Foundation, our dedication to future generations
+            </p>
+            <a href="{% url 'love_for_future_generations' %}" class="btn btn-warning btn-sm text-dark" type="button">Read More</a>
+          </div>
+        </div>
+      </div><!-- End Card 3 -->
+
+    <!-- Card 4: Love for the Environment -->
+<div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="400">
+    <div class="card shadow-sm h-100 rounded-3 service-card">
+        <div class="card-img-wrapper">
+            <img src="{% static 'assets/img/Love-for-environment.jpg' %}" class="card-img-top fixed-image" alt="Love for the Environment">
+        </div>
+        <div class="card-body text-center p-3" style="background: rgba(220, 53, 69, 0.1);">
+            <h6 class="fw-bold text-danger">Love for the Environment</h6>
+            <p class="card-text small text-muted">
+                At the Chepngoy Foundation, our deep commitment to the environment
+            </p>
+            <a href="{% url 'love_for_environment' %}" class="btn btn-danger" type="button">Read More</a>
+        </div>
+    </div>
+</div>
+<!-- End Card 4 -->
+
+    </div>
+  </div>
+
+</section>
+
+<!-- Bootstrap Hover Animations -->
+<style>
+  .more-services .card {
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.more-services .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.more-services .card img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.more-services .card:hover img {
+  transform: scale(1.1);
+}
+
+.more-services .card-body {
+  transition: background 0.3s ease-in-out;
+}
+
+.more-services .card:hover .card-body {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.more-services .card .btn {
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.more-services .card .btn:hover {
+  transform: scale(1.05);
+}
+
+</style> <!-- end of Causes Section -->
+
+      <!-- teams Section -->
+      <section id="team" class="team section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Team</h2>
+        <p>CHECK OUR TEAM</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-5">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="member">
+              <div class="pic"><img src="{% static 'assets/img/team/team-1.jpg' %}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Walter White</h4>
+                <span>Chief Executive Officer</span>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="member">
+              <div class="pic"><img src="{% static 'assets/img/team/team-2.jpg' %}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Sarah Jhonson</h4>
+                <span>Product Manager</span>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="member">
+              <div class="pic"><img src="{% static 'assets/img/team/team-3.jpg' %}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>William Anderson</h4>
+                <span>CTO</span>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Team Section -->
+
+
+      <!-- end of team Section -->
+    <!-- upcoming events Section -->
+    <section id="services" class="services section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Events</h2>
+        <p>Upcomming Events<br></p>
+        <h5>Charity is the essence of humanity, a powerful expression of compassion and generosity that transcends boundaries, uplifting lives and fostering hope. Through acts of giving, we generate a ripple effect of positive transformation, inspiring change and creating lasting impact for individuals and communities alike.</h5>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-5">
+
+          <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+            <div class="service-item">
+              <div class="img">
+                <img src="{% static 'assets/img/poem.png' %}" class="img-fluid" alt="">
+              </div>
+              <div class="details position-relative">
+                <div class="icon">
+                  <i class="bi bi-activity"></i>
+                </div>
+                <a href="service-details.html" class="stretched-link">
+                  <h3>Nesciunt Mete</h3>
+                </a>
+                <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis.</p>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+            <div class="service-item">
+              <div class="img">
+                <img src="{% static 'assets/img/FB_IMG_1732269095346.jpg' %}" class="img-fluid" alt="">
+              </div>
+              <div class="details position-relative">
+                <div class="icon">
+                  <i class="bi bi-broadcast"></i>
+                </div>
+                <a href="service-details.html" class="stretched-link">
+                  <h3>Eosle Commodi</h3>
+                </a>
+                <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+            <div class="service-item">
+              <div class="img">
+                <img src="{% static 'assets/img/services-3.jpg' %}" class="img-fluid" alt="">
+              </div>
+              <div class="details position-relative">
+                <div class="icon">
+                  <i class="bi bi-easel"></i>
+                </div>
+                <a href="service-details.html" class="stretched-link">
+                  <h3>Ledo Markt</h3>
+                </a>
+                <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- end of upcoming Section -->
+
+      <!-- Donate section -->
+    <section>
+
+
+    </section><!-- end of donate Section -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Contact</h2>
+        <p>Contact us</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+          <div class="col-lg-6 ">
+            <div class="row gy-4">
+
+              <div class="col-lg-12">
+                <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
+                  <i class="bi bi-geo-alt"></i>
+                  <h3>Address</h3>
+                  <p>30100, Eldoret, Kenya</p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <div class="col-md-6">
+                <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="300">
+                  <i class="bi bi-telephone"></i>
+                  <h3>Call Us</h3>
+                  <p>+2547281336295</p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <div class="col-md-6">
+                <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="400">
+                  <i class="bi bi-envelope"></i>
+                  <h3>Email Us</h3>
+                  <p>info@example.com</p>
+                </div>
+              </div><!-- End Info Item -->
+
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="500">
+              <div class="row gy-4">
+
+                <div class="col-md-6">
+                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                </div>
+
+                <div class="col-md-6 ">
+                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <textarea class="form-control" name="message" rows="4" placeholder="Message" required=""></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                  <button type="submit">Send Message</button>
+                </div>
+
+              </div>
+            </form>
+          </div><!-- End Contact Form -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Contact Section -->
+
+  </main>
+
+ <footer id="footer" class="footer dark-background">
+     <div class="footer-photo text-center my-3">
+            <img src="{% static 'assets/img/chepngoy logo3.png' %}" alt="Footer Photo" style="width: 100px; height: auto; border-radius: 8px;">
+        </div>
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span class="sitename">Chepngoy</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p>A108 Adam Street</p>
+            <p>30100, Eldoret, Kenya</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>254728133629</span></p>
+            <p><strong>Email:</strong> <span>info@example.com</span></p>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Footer Links</h4>
+          <ul>
+            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'index' %}">Home</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'about' %}">About us</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'causes' %}">Causes</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'events' %}">Event</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-12 footer-newsletter">
+          <h4>Our Newsletter</h4>
+          <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
+          <form action="forms/newsletter.php" method="post" class="php-email-form">
+            <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your subscription request has been sent. Thank you!</div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">TechForge</strong> <span>All Rights Reserved</span></p>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by Techforge
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+<script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+<script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+<script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+<script src="{% static 'assets/vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+<script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+
+<!-- Main JS File -->
+<script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

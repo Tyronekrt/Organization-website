@@ -1,0 +1,180 @@
+{% extends 'starter-page.html' %}
+{% block body %}
+{% load static %}
+<section id="more-services" class="more-services section py-5 bg-light">
+    <style>
+        .card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-top {
+    height: 350px;
+    object-fit: cover;
+    border-bottom: 5px solid white;
+}
+
+.card-body {
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h6 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+p {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.btn-read-more {
+    background-color: #c82333;
+    color: white;
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+}
+
+.btn-read-more:hover {
+    background-color: #a71d2a;
+}
+
+
+    </style>
+  <!-- Section Title -->
+  <div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="fw-bold text-dark fs-4 border-start border-4 border-dark ps-3">
+        Causes
+      </h2>
+      <p class="text-muted ps-3">The Chepngoy Foundation empowers communities, protects nature, and inspires lasting change through love-driven actions.</p>
+    </div>
+  </div>
+</div><!-- End Section Title -->
+
+  <div class="container">
+    <div class="row g-3 justify-content-center">
+
+      <!-- Card 1: Donate for Love -->
+      <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="card shadow-sm h-100 rounded-3 service-card">
+          <img src="{% static 'assets/img/Donate-for-love.jpg' %}" class="card-img-top img-fluid rounded-top" alt="Service Image">
+          <div class="card-body text-center p-3" style="background: rgba(0, 123, 255, 0.1);">
+            <h6 class="fw-bold text-primary">Donate for Love</h6>
+            <p class="card-text small text-muted">
+              At the Chepngoy Foundation, donating out of love represents
+            </p>
+            <a href="{% url 'donate_for_love' %}" class="btn btn-primary " type="button">Read More</a>
+          </div>
+        </div>
+      </div><!-- End Card 1 -->
+
+      <!-- Card 2: Love for Humanity -->
+      <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="card shadow-sm h-100 rounded-3 service-card">
+          <img src="{% static 'assets/img/Love-for- Humanity.jpg' %}" class="card-img-top img-fluid rounded-top" alt="Service Image">
+          <div class="card-body text-center p-3" style="background: rgba(40, 167, 69, 0.1);">
+            <h6 class="fw-bold text-success">Love for Humanity</h6>
+            <p class="card-text small text-muted">
+              At the Chepngoy Foundation, our commitment to humanity lies
+            </p>
+            <a href="{% url 'love_for_humanity' %}" class="btn btn-success" type="button">Read More</a>
+          </div>
+        </div>
+      </div><!-- End Card 2 -->
+
+      <!-- Card 3: Love for Future Generations -->
+      <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="card shadow-sm h-100 rounded-3 service-card">
+          <img src="{% static 'assets/img/Love-for-future-generation.jpg' %}" class="card-img-top img-fluid rounded-top" alt="Service Image">
+          <div class="card-body text-center p-3" style="background: rgba(255, 193, 7, 0.1);">
+            <h6 class="fw-bold text-warning">Love for Future Generations</h6>
+            <p class="card-text small text-muted">
+              At the Chepngoy Foundation, our dedication to future generations
+            </p>
+            <a href="{% url 'love_for_future_generations' %}" class="btn btn-warning btn-sm text-dark" type="button">Read More</a>
+          </div>
+        </div>
+      </div><!-- End Card 3 -->
+
+    <!-- Card 4: Love for the Environment -->
+<div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="400">
+    <div class="card shadow-sm h-100 rounded-3 service-card">
+        <div class="card-img-wrapper">
+            <img src="{% static 'assets/img/Love-for-environment.jpg' %}" class="card-img-top fixed-image" alt="Love for the Environment">
+        </div>
+        <div class="card-body text-center p-3" style="background: rgba(220, 53, 69, 0.1);">
+            <h6 class="fw-bold text-danger">Love for the Environment</h6>
+            <p class="card-text small text-muted">
+                At the Chepngoy Foundation, our deep commitment to the environment
+            </p>
+            <a href="{% url 'love_for_environment' %}" class="btn btn-danger" type="button">Read More</a>
+        </div>
+    </div>
+</div>
+<!-- End Card 4 -->
+
+    </div>
+  </div>
+
+</section>
+
+<!-- Bootstrap Hover Animations -->
+<style>
+  .more-services .card {
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.more-services .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.more-services .card img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.more-services .card:hover img {
+  transform: scale(1.1);
+}
+
+.more-services .card-body {
+  transition: background 0.3s ease-in-out;
+}
+
+.more-services .card:hover .card-body {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.more-services .card .btn {
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.more-services .card .btn:hover {
+  transform: scale(1.05);
+}
+
+</style>
+
+
+
+{% endblock %}

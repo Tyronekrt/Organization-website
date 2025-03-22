@@ -1,0 +1,25 @@
+from django.contrib import admin
+from django.urls import path
+
+from FoundationApp import views
+
+urlpatterns = [
+    path('',views.index, name='index'),
+    path('portfolio/',views.portfolio, name='portfolio'),
+    path('service/',views.service, name='service'),
+    path('starter/',views.starter, name='starter'),
+    path('about/',views.about, name='about'),
+    path('causes/',views.causes, name='causes'),
+    path('events/',views.events, name='events'),
+    path('donate_for_love/', views.donate_for_love, name='donate_for_love'),
+    path('love_for_humanity/', views.love_for_humanity, name='love_for_humanity'),
+    path('love_for_future_generations/', views.love_for_future_generations, name='love_for_future_generations'),
+    path('love_for_environment/', views.love_for_environment, name='love_for_environment'),
+    path('teams/',views.teams, name='teams'),
+    path('contact/',views.contact, name='contact'),
+    path('submit/',views.submit, name='submit'),
+    path('pay/',views.pay, name='pay'),
+
+
+
+]

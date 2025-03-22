@@ -1,0 +1,115 @@
+{% extends 'starter-page.html' %}
+{% load static %}
+{% block body %}
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400&display=swap" rel="stylesheet">
+<style>
+    body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        .background {
+            background-image: url("{% static 'static/assets/img/home.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            height: 100vh; /* Reduced from 60vh */
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;;
+        }
+
+        .title {
+        font-family: 'Playfair Display', serif;
+        font-size: 3.5em;
+        color: rgb(242, 197, 15);
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+        transition: transform 0.3s;
+    }
+    .title:hover {
+        transform: scale(1.05);
+        text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
+    }
+
+
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .content {
+            padding: 40px;
+            max-width: 1000px;
+            margin: auto;
+            background-color: #fff;
+            margin-top: -50px;
+            box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s, box-shadow 0.3s;
+            line-height: 1.8;
+            color: #444;
+        }
+        .content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 20px rgba(0,0,0,0.3);
+        }
+
+        p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 1.0em;
+            font-weight: 400;
+            text-align: justify;
+        }
+        .contact-button {
+        display: inline-block;
+        padding: 12px 25px;
+        margin: 10px auto;
+        background-color: #e4b90f;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        font-size: 1.1em;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s;
+        text-decoration: none;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .contact-button:hover {
+        background-color: #e4b90f;
+        transform: translateY(-3px);
+        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+    }
+    .center-button {
+        display: block;
+        margin: 20px auto;
+    }
+</style>
+
+<div class="background">
+    <div class="overlay"></div>
+    <h1 class="title">Love For Future Generations</h1>
+</div>
+
+<div class="content">
+    <p>At the Chepngoy Foundation, our dedication to future generations serves as a guiding beacon, lighting the path toward a world where the aspirations of tomorrow’s children can reach their fullest potential. This commitment is rooted in our responsibility to leave behind a legacy defined by hope, opportunity, and a sustainable planet.</p>
+    <p>For us, love for future generations means actively shaping an environment where young minds can thrive—through access to education, the promotion of sustainable practices, and the cultivation of their untapped potential. It’s a vision that transcends the challenges of today, focusing instead on empowering the leaders of tomorrow. By investing in their growth, health, and well-being, the Chepngoy Foundation ensures that the momentum of progress continues, brighter than ever before.</p>
+    <p>This love is more than a belief; it is a promise—a promise to future generations that they will inherit a world brimming with opportunities, guided by values of compassion, wisdom, and an unwavering sense of hope. Through this commitment, we are building a future where every child has the chance to shape a better, more prosperous world.</p>
+    <a href="{% url 'contact' %}">
+    <button class="contact-button center-button">Contact Us</button>
+</a>
+</div>
+
+{% endblock %}

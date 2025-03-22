@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate for Love</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Lora:wght@400;600&family=Poppins:wght@400;600&display=swap');
+
+    body {
+        font-family: 'Inter', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        opacity: 0;
+        animation: fadeIn 1.5s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    /* Header Section */
+    .header {
+        background-color:#000080;
+        color: #ffcc00;
+        text-align: center;
+        padding: 40px;
+        font-size: 26px;
+        font-weight: 600;
+        font-family: 'Poppins', sans-serif;
+        border-radius: 0 0 50% 50%;
+        animation: bounce 1.5s ease-in-out;
+    }
+
+    @keyframes bounce {
+        0% { transform: translateY(-20px); }
+        50% { transform: translateY(10px); }
+        100% { transform: translateY(0); }
+    }
+
+    /* Container Layout */
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 50px 10%;
+        gap: 40px;
+    }
+
+    /* Donation Section */
+    .donation-section, .mpesa-section {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: slideIn 1s ease-in-out forwards;
+    }
+
+    .donation-section {
+        width: 50%;
+        animation-delay: 0.5s;
+    }
+
+    .mpesa-section {
+        width: 40%;
+        animation-delay: 1s;
+    }
+
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .donation-section h2 {
+        font-family: 'Lora', serif;
+        font-size: 28px;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .underline {
+        width: 60px;
+        height: 4px;
+        background-color: #6b376b;
+        border: none;
+        margin: 10px 0;
+    }
+
+    .quote {
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 1.6;
+        color: #666;
+    }
+
+    /* MPESA Section */
+    .mpesa-section {
+        background-color: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        font-family: 'Inter', sans-serif;
+    }
+
+    .mpesa-section h3 {
+        font-size: 22px;
+        color: #444;
+        font-weight: 600;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    ul li {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Donate for love💛</h1>
+    </div>
+
+    <div class="container">
+        <div class="donation-section">
+            <h2>Make a Donation</h2>
+            <hr class="underline">
+            <p class="quote">
+                “Charity is the heartbeat of humanity, a gesture of love and kindness,
+                it reaches beyond borders, touching living and spreading hope.
+                Through giving, we create a ripple effect of positive change.”
+            </p>
+        </div>
+
+        <div class="mpesa-section">
+            <h3>M-PESA</h3>
+            <ul>
+                <li>Select ‘Pay bill’ from your M-PESA menu</li>
+                <li>Enter business number <strong>400200</strong></li>
+                <li>Enter account number <strong>852043</strong></li>
+                <li>Enter amount</li>
+                <li>Enter your M-PESA PIN</li>
+                <li>Press OK</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>
