@@ -1,3 +1,4 @@
 from django.contrib import admin
+from FoundationApp.models import ImageModel
 
-# Register your models here.
+admin.site.register(ImageModel)
