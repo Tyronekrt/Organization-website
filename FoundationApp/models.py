@@ -8,3 +8,9 @@ class ImageModel(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class EventModel(models.Model):
+    image = models.ImageField(upload_to='events/')
+    def __str__(self):
+        return str(self.id)

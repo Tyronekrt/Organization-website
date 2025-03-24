@@ -1,33 +1,33 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Chepngoy Foundation</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Chepngoy Foundation</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
     {% load static %}
 
-  <!-- Favicons -->
-  <link href="{% static 'assets/img/chepngoy logo3.png' %}" rel="icon">
-  <link href="{% static 'assets/img/chepngoy logo3.png' %}" rel="apple-touch-icon">
+    <!-- Favicons -->
+    <link href="{% static 'assets/img/chepngoy logo3.png' %}" rel="icon">
+    <link href="{% static 'assets/img/chepngoy logo3.png' %}" rel="apple-touch-icon">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
-  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-<link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-<link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
-<link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
-<link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
 
-<!-- Main CSS File -->
-<link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+    <!-- Main CSS File -->
+    <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
 
 
 </head>
@@ -35,168 +35,131 @@
 <body class="starter-page-page">
 
 <header id="header" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <div class="container-fluid container-xl position-relative d-flex align-items-center">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
-    <a href="index.html" class="logo d-flex align-items-center me-auto">
-      <img src="{% static 'assets/img/chepngoy logo3.png' %}" alt="Logo" class="img-fluid" style="height: 50px;">
-{#      <h1 class="sitename ms-2">ChepngoyFoundation</h1>#}
-    </a>
+        <a href="index.html" class="logo d-flex align-items-center me-auto">
+            <img src="{% static 'assets/img/chepngoy logo3.png' %}" alt="Logo" class="img-fluid" style="height: 50px;">
+            {#      <h1 class="sitename ms-2">ChepngoyFoundation</h1>#}
+        </a>
 
-    <nav id="navmenu" class="navmenu">
-      <ul>
-        <li><a href="{% url 'index' %}">Home</a></li>
-          <li><a href="{% url 'about' %}">About us</a></li>
-          <li><a href="{% url 'causes' %}">Causes</a></li>
-          <li><a href="{% url 'events' %}">Events</a></li>
-          <li><a href="{% url 'teams' %}">Team</a></li>
-          <li><a href="{% url 'contact' %}">Contact</a></li>
-      </ul>
-      <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-    </nav>
+        <nav id="navmenu" class="navmenu">
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About us</a></li>
+                <li><a href="{% url 'causes' %}">Causes</a></li>
+                <li><a href="{% url 'events' %}">Events</a></li>
+                <li><a href="{% url 'teams' %}">Team</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
 
-  </div>
+    </div>
 </header>
 
 
-  <main class="main">
+<main class="main">
+    <br><br>
     <!-- upcoming events Section -->
     <section id="services" class="services section">
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Events</h2>
-        <p>Upcomming Events<br></p>
-        <h5>Charity is the essence of humanity, a powerful expression of compassion and generosity that transcends boundaries, uplifting lives and fostering hope. Through acts of giving, we generate a ripple effect of positive transformation, inspiring change and creating lasting impact for individuals and communities alike.</h5>
-      </div><!-- End Section Title -->
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Events</h2>
+            <p>Upcomming Events<br></p>
+            <h5>Charity is the essence of humanity, a powerful expression of compassion and generosity that transcends
+                boundaries, uplifting lives and fostering hope. Through acts of giving, we generate a ripple effect of
+                positive transformation, inspiring change and creating lasting impact for individuals and communities
+                alike.</h5>
+        </div><!-- End Section Title -->
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-5">
-
-          <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-            <div class="service-item">
-              <div class="img">
-                <img src="{% static 'assets/img/poem.png' %}" class="img-fluid" alt="">
-              </div>
-              <div class="details position-relative">
-                <div class="icon">
-                  <i class="bi bi-activity"></i>
+        <div class="container d-flex flex-row justify-content-start align-items-start" data-aos="fade-up"
+             data-aos-delay="100">
+            {% for x in events %}
+                <div class="service-item me-3" data-aos="" data-aos-delay="200">
+                    <div class="img">
+                        <img src="{{ x.image.url }}" class="img-fluid" alt="">
+                    </div>
                 </div>
-                <a href="service-details.html" class="stretched-link">
-                  <h3>Nesciunt Mete</h3>
-                </a>
-                <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis.</p>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
-            <div class="service-item">
-              <div class="img">
-                <img src="{% static 'assets/img/FB_IMG_1732269095346.jpg' %}" class="img-fluid" alt="">
-              </div>
-              <div class="details position-relative">
-                <div class="icon">
-                  <i class="bi bi-broadcast"></i>
-                </div>
-                <a href="service-details.html" class="stretched-link">
-                  <h3>Eosle Commodi</h3>
-                </a>
-                <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
-            <div class="service-item">
-              <div class="img">
-                <img src="{% static 'assets/img/services-3.jpg' %}" class="img-fluid" alt="">
-              </div>
-              <div class="details position-relative">
-                <div class="icon">
-                  <i class="bi bi-easel"></i>
-                </div>
-                <a href="service-details.html" class="stretched-link">
-                  <h3>Ledo Markt</h3>
-                </a>
-                <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
+            {% endfor %}
+        </div>
         </div>
 
-      </div>
+        </div>
 
     </section><!-- end of upcoming Section -->
 
 
-      </main>
+</main>
 
-  <footer id="footer" class="footer dark-background">
-      <div class="footer-photo text-center my-3">
-            <img src="{% static 'assets/img/chepngoy logo3.png' %}" alt="Footer Photo" style="width: 100px; height: auto; border-radius: 8px;">
-        </div>
+<footer id="footer" class="footer dark-background">
+    <div class="footer-photo text-center my-3">
+        <img src="{% static 'assets/img/chepngoy logo3.png' %}" alt="Footer Photo"
+             style="width: 100px; height: auto; border-radius: 8px;">
+    </div>
 
     <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Chepngoy</span>
-          </a>
-          <div class="footer-contact pt-3">
-            <p>A108 Adam Street</p>
-            <p>30100, Eldoret, Kenya</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>254728133629</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
-          </div>
-        </div>
+        <div class="row gy-4">
+            <div class="col-lg-4 col-md-6 footer-about">
+                <a href="index.html" class="logo d-flex align-items-center">
+                    <span class="sitename">Chepngoy</span>
+                </a>
+                <div class="footer-contact pt-3">
+                    <p>A108 Adam Street</p>
+                    <p>30100, Eldoret, Kenya</p>
+                    <p class="mt-3"><strong>Phone:</strong> <span>254728133629</span></p>
+                    <p><strong>Email:</strong> <span>info@example.com</span></p>
+                </div>
+            </div>
 
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Footer Links</h4>
-          <ul>
-           <li><i class="bi bi-chevron-right"></i> <a href="{% url 'index' %}">Home</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'about' %}">About us</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'causes' %}">Causes</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'events' %}">Event</a></li>
-          </ul>
-        </div>
+            <div class="col-lg-2 col-md-3 footer-links">
+                <h4>Footer Links</h4>
+                <ul>
+                    <li><i class="bi bi-chevron-right"></i> <a href="{% url 'index' %}">Home</a></li>
+                    <li><i class="bi bi-chevron-right"></i> <a href="{% url 'about' %}">About us</a></li>
+                    <li><i class="bi bi-chevron-right"></i> <a href="{% url 'causes' %}">Causes</a></li>
+                    <li><i class="bi bi-chevron-right"></i> <a href="{% url 'events' %}">Event</a></li>
+                </ul>
+            </div>
 
-        <div class="col-lg-4 col-md-12 footer-newsletter">
-          <h4>Our Newsletter</h4>
-          <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
-          <form action="forms/newsletter.php" method="post" class="php-email-form">
-            <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your subscription request has been sent. Thank you!</div>
-          </form>
-        </div>
+            <div class="col-lg-4 col-md-12 footer-newsletter">
+                <h4>Our Newsletter</h4>
+                <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
+                <form action="forms/newsletter.php" method="post" class="php-email-form">
+                    <div class="newsletter-form"><input type="email" name="email"><input type="submit"
+                                                                                         value="Subscribe"></div>
+                    <div class="loading">Loading</div>
+                    <div class="error-message"></div>
+                    <div class="sent-message">Your subscription request has been sent. Thank you!</div>
+                </form>
+            </div>
 
-      </div>
+        </div>
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">TechForge</strong> <span>All Rights Reserved</span></p>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by Techforge
-      </div>
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">TechForge</strong> <span>All Rights Reserved</span>
+        </p>
+        <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you've purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+            Designed by Techforge
+        </div>
     </div>
 
-  </footer>
+</footer>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<!-- Scroll Top -->
+<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
+<!-- Preloader -->
+<div id="preloader"></div>
 
-  <!-- Vendor JS Files -->
-  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!-- Vendor JS Files -->
+<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
 <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
 <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
