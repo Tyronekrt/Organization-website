@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Chepngoi Foundation</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+    {% load static %}
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/chepngoy logo3.png' %}" rel="icon">
+  <link href="{% static 'assets/img/chepngoy logo3.png' %}" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+<link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+<link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+<link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+<!-- Main CSS File -->
+<link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+
+</head>
+
+<body class="starter-page-page">
+
+<header id="header" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+    <a href="index.html" class="logo d-flex align-items-center me-auto">
+      <img src="{% static 'assets/img/chepngoy logo3.png' %}" alt="Logo" class="img-fluid" style="height: 50px;">
+{#      <h1 class="sitename ms-2">ChepngoyFoundation</h1>#}
+    </a>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="{% url 'index' %}">Home</a></li>
+          <li><a href="{% url 'about' %}">About us</a></li>
+          <li><a href="{% url 'causes' %}">Causes</a></li>
+          <li><a href="{% url 'events' %}">Events</a></li>
+          <li><a href="{% url 'teams' %}">Team</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+      </ul>
+      <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+    </nav>
+
+  </div>
+</header>
+
+
+  <main class="main">
+
+      <br><br>
+      <style>
+    .container1 {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 25px;
+        background-color: #fff;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+        border: 2px solid #6a0dad; /* Purple border */
+    }
+
+    .section-title {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    {#h2 {#}
+    {#     color: #6a0dad; /* Purple text */#}
+    {#    font-weight: bold;#}
+    {#    font-size: 34px; /* Increased font size */#}
+    {#    margin-bottom: 15px;#}
+    {#    text-transform: uppercase;#}
+    {#    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Added text shadow */#}
+    {
+    #}#}
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    label {
+        font-weight: bold;
+        color: #6a0dad; /* Purple text */
+        margin-bottom: 5px;
+    }
+
+    input[type="text"], input[type="file"] {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #d4af37; /* Golden border */
+        border-radius: 8px;
+        box-sizing: border-box;
+        outline: none;
+        font-size: 15px;
+        margin-bottom: 15px;
+        transition: border-color 0.3s;
+        background-color: #f9f6f2; /* Light background for inputs */
+    }
+
+    input[type="text"]:focus {
+        border-color: #6a0dad;
+        box-shadow: 0 0 8px rgba(106, 13, 173, 0.4); /* Purple glow */
+    }
+
+    button {
+        padding: 12px;
+        background-color: #d4af37; /* Golden button */
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: bold;
+        margin-top: 10px;
+        transition: background-color 0.3s;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-transform: uppercase;
+    }
+
+    button:hover {
+        background-color: #b8860b; /* Darker golden hover */
+    }
+
+    .btn-warning {
+        background-color: #6a0dad; /* Purple button */
+        color: #fff;
+        padding: 10px;
+        text-decoration: none;
+        border-radius: 8px;
+        text-align: center;
+        margin-top: 10px;
+        display: inline-block;
+        font-weight: bold;
+        transition: background-color 0.3s;
+        text-transform: uppercase;
+    }
+
+    .btn-warning:hover {
+        background-color: #4b0082; /* Darker purple */
+    }
+
+    .image-preview {
+        margin-top: 10px;
+        width: 100%;
+        height: 250px;
+        border: 2px dashed #6a0dad; /* Purple dashed border */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        background-color: #faf3e0; /* Light golden background */
+        border-radius: 10px;
+        margin-bottom: 15px;
+        color: #6a0dad;
+        font-weight: bold;
+    }
+
+    .image-preview img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    }
+</style>
+
+<div class="container section-title">
+    <h2>Update Team Members</h2>
+</div>
+
+<form method="POST" enctype="multipart/form-data" class="container1" action="/updatevents/{{ editevents.id}}">
+    {% csrf_token %}
+
+    <label for="eventimage">Image:</label>
+    <input type="file" value="{{ editevents.id }}" id="teamImage" accept="image/*" onchange="previewImage(event)" required>
+
+    <div class="image-preview" id="imagePreview">No image selected</div>
+
+    <button type="submit">Update Event</button>
+
+</form>
+
+<script>
+    function previewImage(event) {
+        const imagePreview = document.getElementById('imagePreview');
+        imagePreview.innerHTML = '';
+        const file = event.target.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                imagePreview.appendChild(img);
+            };
+            reader.readAsDataURL(file);
+        } else {
+            imagePreview.textContent = 'No image selected';
+        }
+    }
+</script>
+
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+      <div class="footer-photo text-center my-3">
+            <img src="{% static 'assets/img/chepngoy logo3.png' %}" alt="Footer Photo" style="width: 100px; height: auto; border-radius: 8px;">
+        </div>
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span class="sitename">Chepngoy Foundation</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p>A108 Adam Street</p>
+            <p>30100, Eldoret, Kenya</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>254728133629</span></p>
+            <p><strong>Email:</strong> <span>info@example.com</span></p>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Footer Links</h4>
+          <ul>
+            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'index' %}">Home</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'about' %}">About us</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'causes' %}">Causes</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'events' %}">Event</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-12 footer-newsletter">
+          <h4>Our Newsletter</h4>
+          <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
+          <form action="forms/newsletter.php" method="post" class="php-email-form">
+            <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your subscription request has been sent. Thank you!</div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">TechForge</strong> <span>All Rights Reserved</span></p>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by Techforge
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+<script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+<script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+<script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+<script src="{% static 'assets/vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+<script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+
+<!-- Main JS File -->
+<script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

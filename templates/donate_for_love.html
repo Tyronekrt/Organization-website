@@ -65,14 +65,6 @@
             box-shadow: 0px 6px 20px rgba(0,0,0,0.3);
         }
 
-        p {
-            line-height: 1.8;
-            margin-bottom: 20px;
-            color: #333;
-            font-size: 1.0em;
-            font-weight: 400;
-            text-align: justify;
-        }
         .contact-button {
         display: inline-block;
         padding: 12px 25px;
@@ -103,13 +95,17 @@
     <h1 class="title">Donate For Love</h1>
 </div>
 
-<div class="content">
-    <P>At the Chepngoy Foundation, donating out of love represents the highest form of compassion—transforming empathy into meaningful action that positively impacts the lives of those in need. It goes beyond the simple act of giving resources; it’s about sharing hope, spreading joy, and catalyzing change. Every contribution serves as a catalyst for growth, nurturing opportunities for education, healthcare, and a brighter future for individuals and communities</P>
-    <p>For us, donating with love signifies a belief in the collective power of community, where each gift, no matter the size, combines with others to spark lasting transformation. It’s a love that transcends self-interest, reaching out to uplift others and create a world where everyone has the opportunity to thrive. Through this shared commitment, the Chepngoy Foundation harnesses the power of generosity to become a driving force for good, demonstrating that, together, we can build a better tomorrow.</p>
+<div class="content" style="line-height: 1.8;
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 1.0em;
+            font-weight: 400;
+            text-align: justify">
+    <p>At the Chepngoy Foundation, our deep commitment to the environment serves as the driving force behind everything we do, recognizing the vital connection between our well-being and the health of the planet. This dedication is rooted in profound respect for the Earth, understanding that its preservation is fundamental to sustaining life for all.</p>
+    <p>For us, love for the environment means safeguarding the delicate balance of ecosystems, protecting wildlife, and advocating for sustainable practices that ensure the natural world remains vibrant and abundant for future generations. It’s a commitment that compels us to act with intention and responsibility, recognizing that even the smallest contributions collectively lead to significant, lasting change.</p>
     <a href="{% url 'contact' %}">
     <button class="contact-button center-button">Contact Us</button>
 </a>
-
 </div>
 
 {% endblock %}

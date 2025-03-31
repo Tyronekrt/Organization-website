@@ -11,4 +11,4 @@ class ImageModelForm(forms.ModelForm):
 class EventModelForm(forms.ModelForm):
     class Meta:
         model = EventModel
-        fields = ['image']
+        fields = ['eventimage']

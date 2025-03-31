@@ -1,166 +1,285 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - Events and Teams</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Chepngoi Foundation</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+    {% load static %}
 
-    <!-- Vendor CSS Files -->
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/chepngoy logo3.png' %}" rel="icon">
+  <link href="{% static 'assets/img/chepngoy logo3.png' %}" rel="apple-touch-icon">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
   <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+<link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+<link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+<link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+<link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
 
-  <!-- Main CSS File -->
-  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+<!-- Main CSS File -->
+<link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: #f4f4f9;
-            display: flex;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
 
+    .sidebar {
+        width: 250px;
+        background-color: #2c3e50;
+        color: #fff;
+        min-height: 100vh;
+        padding-top: 20px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        z-index: 100;
+    }
+
+    .sidebar h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-weight: 600;
+    }
+
+    .sidebar ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .sidebar ul li {
+        padding: 15px 20px;
+        cursor: pointer;
+        transition: background 0.3s;
+        border-bottom: 1px solid #34495e;
+    }
+
+    .sidebar ul li:hover, .sidebar ul li.active {
+        background-color: #34495e;
+    }
+
+    .sidebar ul li i {
+        margin-right: 10px;
+    }
+
+    .main-content {
+        margin-left: 250px;
+        padding: 20px;
+        width: calc(100% - 250px);
+        transition: margin-left 0.3s ease;
+    }
+
+    .content-header {
+        background-color: #2980b9;
+        color: #fff;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .content-section {
+        display: none;
+        background-color: #fff;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .active-section {
+        display: block;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 500;
+        color: #333;
+    }
+
+    input[type="text"], input[type="file"], select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #2980b9;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    button:hover {
+        background-color: #1f6aa5;
+    }
+
+    .image-preview {
+        margin-top: 10px;
+        width: 250px;
+        height: 250px;
+        border: 2px dashed #2980b9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        background-color: #f4f4f9;
+    }
+
+    .image-preview img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .hamburger-menu {
+        display: none;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 1000;
+        color: white;
+        background-color: rgba(0,0,0,0.5);
+        padding: 10px;
+        border-radius: 50%;
+    }
+
+    .mobile-sidebar {
+        position: fixed;
+        top: 0;
+        left: -250px;
+        width: 250px;
+        height: 100vh;
+        background-color: #2c3e50;
+        color: #fff;
+        padding-top: 20px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        transition: left 0.3s ease;
+        z-index: 999;
+    }
+
+    .mobile-sidebar.open {
+        left: 0;
+    }
+
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 998;
+    }
+
+    @media (max-width: 992px) {
         .sidebar {
-            width: 250px;
-            background-color: #2c3e50;
-            color: #fff;
-            min-height: 100vh;
-            padding-top: 20px;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-            position: fixed;
-        }
-
-        .sidebar h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            font-weight: 600;
-        }
-
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .sidebar ul li {
-            padding: 15px 20px;
-            cursor: pointer;
-            transition: background 0.3s;
-            border-bottom: 1px solid #34495e;
-        }
-
-        .sidebar ul li:hover, .sidebar ul li.active {
-            background-color: #34495e;
-        }
-
-        .sidebar ul li i {
-            margin-right: 10px;
+            display: none;
         }
 
         .main-content {
-            margin-left: 250px;
-            padding: 20px;
-            width: calc(100% - 250px);
+            margin-left: 0;
+            width: 100%;
         }
 
-        header {
-            background-color: #2980b9;
-            color: #fff;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .content-section {
-            display: none;
-            background-color: #fff;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .active-section {
+        .hamburger-menu {
             display: block;
         }
+    }
+</style>
 
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
-            color: #333;
-        }
-
-        input[type="text"], input[type="file"], select {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            outline: none;
-        }
-
-        button {
-            padding: 10px 20px;
-            background-color: #2980b9;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-        button:hover {
-            background-color: #1f6aa5;
-        }
-
-        .image-preview {
-            margin-top: 10px;
-            width: 250px;
-            height: 250px;
-            border: 2px dashed #2980b9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            background-color: #f4f4f9;
-        }
-
-        .image-preview img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    </style>
 </head>
-<body>
-    <!-- Sidebar -->
-    <div class="sidebar">
+
+<body class="starter-page-page">
+
+<header id="header" class="navbar navbar-expand-lg navbar-dark  fixed-top" style="background-color: #031633;height: 90px">
+  <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+    <a href="{% url 'index' %}" class="logo d-flex align-items-center me-auto">
+      <img src="{% static 'assets/img/chepngoy logo3.png' %}" alt="Logo" class="img-fluid" style="height: 90px;">
+    </a>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="{% url 'adminmember' %}">Manage Team</a></li>
+          <li><a href="{% url 'adminevents' %}">Manage Events</a></li>
+          <li><a href="{% url 'uploadview' %}">Admin Dashbord</a></li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+      </ul>
+      <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+    </nav>
+
+  </div>
+</header>
+<br><br><br>
+
+
+  <main class="main">
+
+    <!-- Hamburger Menu -->
+    <div class="hamburger-menu" onclick="toggleMobileSidebar()">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- Overlay for mobile sidebar -->
+    <div class="overlay" id="sidebarOverlay" onclick="toggleMobileSidebar()"></div>
+
+    <!-- Mobile Sidebar -->
+    <div class="mobile-sidebar" id="mobileSidebar">
+        <h2>Admin Panel</h2>
+        <ul id="mobileMenuList">
+            <li onclick="showSection('dashboard')"><i class="fas fa-home"></i> Dashboard</li>
+            <li onclick="showSection('eventUpload')"><i class="fas fa-image"></i> Event Upload</li>
+            <li onclick="showSection('manageTeams')"><i class="fas fa-users"></i> Manage Teams</li>
+            <li onclick="showSection('settings')"><i class="fas fa-cogs"></i> Settings</li>
+            <li onclick="showSection('logout')"><i class="fas fa-sign-out-alt"></i> <a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Desktop Sidebar -->
+    <div class="sidebar responsive-table__container">
         <h2>Admin Panel</h2>
         <ul id="menuList">
             <li onclick="showSection('dashboard')"><i class="fas fa-home"></i> Dashboard</li>
             <li onclick="showSection('eventUpload')"><i class="fas fa-image"></i> Event Upload</li>
             <li onclick="showSection('manageTeams')"><i class="fas fa-users"></i> Manage Teams</li>
             <li onclick="showSection('settings')"><i class="fas fa-cogs"></i> Settings</li>
-            <li onclick="showSection('logout')"><i class="fas fa-sign-out-alt"></i> Logout</li>
+            <li onclick="showSection('logout')"><i class="fas fa-sign-out-alt"></i> <a href="{% url 'logout' %}">Logout</a></li>
         </ul>
     </div>
 
     <!-- Main Content -->
-    <div class="main-content">
-        <header>
+    <div class="main-content" id="mainContent">
+        <div class="content-header">
             <h2>Admin Dashboard</h2>
             <p>Manage events and teams with ease.</p>
-        </header>
+        </div>
 
         <!-- Dashboard Section -->
         <div id="dashboard" class="content-section active-section">
@@ -171,41 +290,38 @@
         <!-- Event Upload Section -->
         <div id="eventUpload" class="content-section">
             <h3>Upload Event Image</h3>
-            <form method="POST" enctype="multipart/form-data">
+            <form method="POST" enctype="multipart/form-data" id="event">
                 {% csrf_token %}
 
                 <label for="eventImage">Upload Event in Image format:</label>
-                <input type="file" name="image" accept="image/*" onchange="previewImage(event, 'eventPreview')" required>
+                <input type="file" name="eventimage" accept="image/*" onchange="previewImage(event, 'eventPreview')" required>
 
                 <div class="image-preview" id="eventPreview">No image selected</div>
                 <button type="submit">Upload Event</button>
                 <a href="{% url 'events' %}" class="btn btn-warning">Display Events</a>
             </form>
-
         </div>
 
         <!-- Manage Teams Section -->
         <div id="manageTeams" class="content-section">
             <h3>Add Team Member</h3>
-            <form method="POST" enctype="multipart/form-data">
+            <form method="POST" enctype="multipart/form-data" id="teams">
                 {% csrf_token %}
 
                 <label for="teamName">Team Member Name:</label>
-                <input type="text" name="name" id="teamName" placeholder="Enter member name" style="text-transform: uppercase;" required>
+                <input type="text" name="membername" id="teamName" placeholder="Enter member name" style="text-transform: uppercase;" required>
 
                 <label for="position">Enter position:</label>
                 <input type="text" name="position" id="position" placeholder="Enter the position" style="text-transform: uppercase;" required>
 
                 <label for="teamImage">Upload Image:</label>
-                <input type="file" name="image" accept="image/*" onchange="previewImage(event, 'teamPreview')" required>
+                <input type="file" name="memberimage" accept="image/*" onchange="previewImage(event, 'teamPreview')" required>
 
                 <div class="image-preview" id="teamPreview">No image selected</div>
 
                 <button type="submit">Add Team Member</button>
                 <a href="{% url 'teams' %}" class="btn btn-warning">Display team</a>
             </form>
-
-
         </div>
 
         <!-- Settings Section -->
@@ -215,39 +331,136 @@
 
             <!-- Manage Events -->
             <a href="{% url 'adminmember' %}"><button>Manage Teams</button></a>
-            
 
             <!-- Manage Teams -->
             <a href="{% url 'adminevents' %}"><button>Manage Events</button></a>
-
         </div>
     </div>
 
     <script>
-         function validateForm() {
-        const imageInput = document.querySelector('input[name="image"]');
+        // Set dashboard as default active section
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('dashboard');
+        });
 
-        if (!imageInput.value) {
-            alert("Please select an image before submitting.");
-            return false; // Prevent form submission
+        function toggleMobileSidebar() {
+            const sidebar = document.getElementById('mobileSidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+
+            sidebar.classList.toggle('open');
+
+            if (sidebar.classList.contains('open')) {
+                overlay.style.display = 'block';
+            } else {
+                overlay.style.display = 'none';
+            }
         }
-        return true; // Allow form submission
-    }
+
         function showSection(sectionId) {
-            document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active-section'));
-            document.getElementById(sectionId).classList.add('active-section');
+            // Hide all content sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active-section');
+            });
+
+            // Show the selected section
+            const activeSection = document.getElementById(sectionId);
+            if (activeSection) {
+                activeSection.classList.add('active-section');
+            }
+
+            // Update active state in both sidebars
+            document.querySelectorAll('#menuList li, #mobileMenuList li').forEach(li => {
+                li.classList.remove('active');
+            });
+
+            // Find and activate the clicked item in both sidebars
+            const menuItems = document.querySelectorAll('#menuList li, #mobileMenuList li');
+            menuItems.forEach(item => {
+                if (item.getAttribute('onclick') && item.getAttribute('onclick').includes(sectionId)) {
+                    item.classList.add('active');
+                }
+            });
+
+            // Close mobile sidebar when a section is selected
+            if (window.innerWidth <= 992) {
+                toggleMobileSidebar();
+            }
         }
 
         function previewImage(event, previewId) {
-            document.getElementById(previewId).innerHTML = `<img src="${URL.createObjectURL(event.target.files[0])}" alt="Preview">`;
+            const preview = document.getElementById(previewId);
+            if (event.target.files && event.target.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.innerHTML = '<img src="' + e.target.result + '" alt="Preview">';
+                }
+                reader.readAsDataURL(event.target.files[0]);
+            } else {
+                preview.innerHTML = 'No image selected';
+            }
         }
-
-        function editEvent() { alert('Event updated!'); }
-        function deleteEvent() { alert('Event deleted!'); }
-        function editTeam() { alert('Team member updated!'); }
-        function deleteTeam() { alert('Team member deleted!'); }
     </script>
-<!-- Vendor JS Files -->
+</main>
+
+  <footer id="footer" class="footer dark-background" style="background-color: #031633">
+      <div class="footer-photo text-center my-3">
+            <img src="{% static 'assets/img/chepngoy logo3.png' %}" alt="Footer Photo" style="width: 100px; height: auto; border-radius: 8px;">
+        </div>
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="{% url 'index' %}" class="logo d-flex align-items-center">
+            <span class="sitename">Chepngoy Foundation</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p>30100, Eldoret, Kenya</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>254728133629</span></p>
+            <p><strong>Email:</strong> <span>info@example.com</span></p>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Footer Links</h4>
+          <ul>
+            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'index' %}">Home</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'about' %}">About us</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'causes' %}">Causes</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'events' %}">Event</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-12 footer-newsletter">
+            <h4>Our Newsletter</h4>
+            <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
+            <form id="newsletter-form" action="#" onsubmit="return showMessage()">
+                <div class="newsletter-form">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <input type="submit" value="Subscribe">
+                </div>
+                <div class="loading" style="display:none;">Loading...</div>
+                <div class="error-message" style="display:none;">Please enter a valid email address.</div>
+                <div class="sent-message" style="display:none;">Thank you! for your subscription this feature is coming soon!😒</div>
+            </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">TechForge</strong> <span>All Rights Reserved</span></p>
+      <div class="credits">
+         <a href="https://georgeslangat.netlify.app/">Designed by Techforge</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
   <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
 <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
@@ -259,5 +472,37 @@
 
 <!-- Main JS File -->
 <script src="{% static 'assets/js/main.js' %}"></script>
+<script>
+    function showMessage() {
+    const loading = document.querySelector('.loading');
+    const errorMessage = document.querySelector('.error-message');
+    const sentMessage = document.querySelector('.sent-message');
+    const emailInput = document.querySelector('input[name="email"]');
+
+    loading.style.display = 'block';
+    errorMessage.style.display = 'none';
+    sentMessage.style.display = 'none';
+
+    setTimeout(() => {
+        loading.style.display = 'none';
+        if (emailInput.value === '' || !validateEmail(emailInput.value)) {
+            errorMessage.style.display = 'block';
+        } else {
+            sentMessage.style.display = 'block';
+            emailInput.value = '';  // Clear the input field after successful submission
+        }
+    }, 1000); // Delay for loading effect
+
+    // Prevent actual form submission
+    return false;
+}
+
+// Email validation function
+function validateEmail(email) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+}
+</script>
+
 </body>
 </html>

@@ -2,11 +2,10 @@ from django.contrib import admin
 from django.urls import path
 
 from FoundationApp import views
+from .views import logout
 
 urlpatterns = [
     path('',views.index, name='index'),
-    path('portfolio/',views.portfolio, name='portfolio'),
-    path('service/',views.service, name='service'),
     path('starter/',views.starter, name='starter'),
     path('about/',views.about, name='about'),
     path('causes/',views.causes, name='causes'),
@@ -19,8 +18,9 @@ urlpatterns = [
     path('contact/',views.contact, name='contact'),
     path('submit/',views.submit, name='submit'),
     path('pay/',views.pay, name='pay'),
-    path('uploadimage/', views.upload_image, name='uploadimage'),
-    path('uploadevent/', views.upload_events, name='uploadevent'),
+    # path('uploadimage/', views.upload_image, name='uploadimage'),
+    # path('uploadevent/', views.upload_events, name='uploadevent'),
+    path('uploadview/', views.upload_view, name='uploadview'),
     path('administrator/', views.administrator, name='administrator'),
     path('login/', views.login, name='login'),
     path('adminmember/', views.adminMember, name='adminmember'),
@@ -28,6 +28,12 @@ urlpatterns = [
     path('editmembers/<int:id>', views.editmembers, name='editmembers'),
     path('updatemembers/<int:id>', views.updatemembers, name='updatemembers'),
     path('deletemembers/<int:id>', views.deletemembers),
+    path('editevents/<int:id>', views.editevents, name='editevents'),
+    path('updatevents/<int:id>', views.updatevents, name='updatevents'),
+    path('deleteevents/<int:id>', views.deleteevents),
+
+    path('logout/', logout, name='logout'),
+
 
 
 
