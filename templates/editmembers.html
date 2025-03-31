@@ -76,15 +76,6 @@
         text-align: center;
     }
 
-    {#h2 {#}
-    {#     color: #6a0dad; /* Purple text */#}
-    {#    font-weight: bold;#}
-    {#    font-size: 34px; /* Increased font size */#}
-    {#    margin-bottom: 15px;#}
-    {#    text-transform: uppercase;#}
-    {#    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Added text shadow */#}
-    {#}#}
-
     form {
         display: flex;
         flex-direction: column;
@@ -179,17 +170,17 @@
     <h2>Update Team Members</h2>
 </div>
 
-<form method="POST" enctype="multipart/form-data" class="container1" action="/updatemembers/{{ editmembers.id }}">
+<form method="POST" class="container1" action="/updatemembers/{{ editmembers.id }}">
     {% csrf_token %}
 
     <label for="teamName">Team Member Name:</label>
-    <input type="text" name="name" value="{{ editmembers.name }}" id="teamName" placeholder="Enter member name" style="text-transform: uppercase;" required>
+    <input type="text" name="name" value="{{ editmembers.membername }}" id="teamName" placeholder="Enter member name" style="text-transform: uppercase;" required>
 
     <label for="position">Enter Position:</label>
     <input type="text" name="position" value="{{ editmembers.position }}" id="position" placeholder="Enter the position" style="text-transform: uppercase;" required>
 
     <label for="teamImage">Upload Image:</label>
-    <input type="file" name="image" id="teamImage" accept="image/*" onchange="previewImage(event)" required>
+    <input type="file" name="image" value="{{ editmembers.memberimage }}" accept="image/*" onchange="previewImage(event)" required>
 
     <div class="image-preview" id="imagePreview">No image selected</div>
 

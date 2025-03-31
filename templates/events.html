@@ -34,12 +34,12 @@
 
 <body class="starter-page-page">
 
-<header id="header" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<header id="header" class="navbar navbar-expand-lg navbar-dark  fixed-top" style="background-color: #031633; height: 90px">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
-        <a href="index.html" class="logo d-flex align-items-center me-auto">
-            <img src="{% static 'assets/img/chepngoy logo3.png' %}" alt="Logo" class="img-fluid" style="height: 50px;">
-            {#      <h1 class="sitename ms-2">ChepngoyFoundation</h1>#}
+        <a href="{% url 'index' %}" class="logo d-flex align-items-center me-auto">
+            <img src="{% static 'assets/img/chepngoy logo3.png' %}" alt="Logo" class="img-fluid" style="height: 90px;">
+            
         </a>
 
         <nav id="navmenu" class="navmenu">
@@ -60,106 +60,296 @@
 
 <main class="main">
     <br><br>
-    <!-- upcoming events Section -->
-    <section id="services" class="services section">
+  <!-- Upcoming Events Section - Carousel Version -->
+<section id="services" class="services section">
 
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-            <h2>Events</h2>
-            <p>Upcomming Events<br></p>
-            <h5>Charity is the essence of humanity, a powerful expression of compassion and generosity that transcends
-                boundaries, uplifting lives and fostering hope. Through acts of giving, we generate a ripple effect of
-                positive transformation, inspiring change and creating lasting impact for individuals and communities
-                alike.</h5>
-        </div><!-- End Section Title -->
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Events</h2>
+        <p>Upcoming Events</p>
+        <h5>Charity is the essence of humanity, a powerful expression of compassion and generosity that transcends boundaries, uplifting lives and fostering hope.</h5>
+    </div><!-- End Section Title -->
 
-        <div class="container d-flex flex-row justify-content-start align-items-start" data-aos="fade-up"
-             data-aos-delay="100">
-            {% for x in events %}
-                <div class="service-item me-3" data-aos="" data-aos-delay="200">
-                    <div class="img">
-                        <img src="{{ x.image.url }}" class="img-fluid" alt="">
+    <style>
+        .events-carousel {
+            position: relative;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+            will-change: transform;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            flex-shrink: 0;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            height: 100%;
+        }
+
+        .event-img-container {
+            position: relative;
+            padding-top: 75%; /* 4:3 aspect ratio */
+            overflow: hidden;
+        }
+
+        .event-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.8);
+            border: none;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-btn.prev {
+            left: 10px;
+        }
+
+        .carousel-btn.next {
+            right: 10px;
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ccc;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .indicator.active {
+            background: #031633;
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .event-img-container {
+                padding-top: 100%; /* 1:1 aspect ratio for mobile */
+            }
+
+            .carousel-btn {
+                width: 36px;
+                height: 36px;
+                font-size: 18px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .carousel-slide {
+                min-width: 50%;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .carousel-slide {
+                min-width: 33.333%;
+            }
+        }
+    </style>
+
+    <div class="events-carousel">
+        <div class="carousel-container">
+            <div class="carousel-track" id="carouselTrack">
+                {% for x in events %}
+                <div class="carousel-slide">
+                    <div class="event-card">
+                        <div class="event-img-container">
+                            <img src="{{ x.eventimage.url }}" class="event-img" alt="Event image">
+                        </div>
                     </div>
                 </div>
+                {% empty %}
+                <div class="no-events" style="width: 100%; text-align: center; padding: 40px;">
+                    No upcoming events at this time
+                </div>
+                {% endfor %}
+            </div>
+
+            <button class="carousel-btn prev" onclick="moveSlide(-1)">❮</button>
+            <button class="carousel-btn next" onclick="moveSlide(1)">❯</button>
+        </div>
+
+        <div class="carousel-indicators" id="carouselIndicators">
+            {% for x in events %}
+            <div class="indicator {% if forloop.first %}active{% endif %}" onclick="goToSlide({{ forloop.counter0 }})"></div>
             {% endfor %}
         </div>
-        </div>
-
-        </div>
-
-    </section><!-- end of upcoming Section -->
-
-
-</main>
-
-<footer id="footer" class="footer dark-background">
-    <div class="footer-photo text-center my-3">
-        <img src="{% static 'assets/img/chepngoy logo3.png' %}" alt="Footer Photo"
-             style="width: 100px; height: auto; border-radius: 8px;">
     </div>
 
-    <div class="container footer-top">
-        <div class="row gy-4">
-            <div class="col-lg-4 col-md-6 footer-about">
-                <a href="index.html" class="logo d-flex align-items-center">
-                    <span class="sitename">Chepngoy</span>
-                </a>
-                <div class="footer-contact pt-3">
-                    <p>A108 Adam Street</p>
-                    <p>30100, Eldoret, Kenya</p>
-                    <p class="mt-3"><strong>Phone:</strong> <span>254728133629</span></p>
-                    <p><strong>Email:</strong> <span>info@example.com</span></p>
-                </div>
-            </div>
+    <script>
+        const track = document.getElementById('carouselTrack');
+        const slides = Array.from(track.children);
+        const indicators = document.querySelectorAll('.indicator');
+        let currentIndex = 0;
 
-            <div class="col-lg-2 col-md-3 footer-links">
-                <h4>Footer Links</h4>
-                <ul>
-                    <li><i class="bi bi-chevron-right"></i> <a href="{% url 'index' %}">Home</a></li>
-                    <li><i class="bi bi-chevron-right"></i> <a href="{% url 'about' %}">About us</a></li>
-                    <li><i class="bi bi-chevron-right"></i> <a href="{% url 'causes' %}">Causes</a></li>
-                    <li><i class="bi bi-chevron-right"></i> <a href="{% url 'events' %}">Event</a></li>
-                </ul>
-            </div>
+        function updateCarousel() {
+            const slideWidth = slides[0].getBoundingClientRect().width;
+            track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
 
-            <div class="col-lg-4 col-md-12 footer-newsletter">
-                <h4>Our Newsletter</h4>
-                <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
-                <form action="forms/newsletter.php" method="post" class="php-email-form">
-                    <div class="newsletter-form"><input type="email" name="email"><input type="submit"
-                                                                                         value="Subscribe"></div>
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">Your subscription request has been sent. Thank you!</div>
-                </form>
-            </div>
+            // Update indicators
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentIndex);
+            });
+        }
 
+        function moveSlide(n) {
+            currentIndex = (currentIndex + n + slides.length) % slides.length;
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentIndex = index;
+            updateCarousel();
+        }
+
+        // Handle responsive slide count
+        function updateSlideWidth() {
+            const screenWidth = window.innerWidth;
+            let slidesToShow = 1;
+
+            if (screenWidth >= 992 && screenWidth < 1200) {
+                slidesToShow = 2;
+            } else if (screenWidth >= 1200) {
+                slidesToShow = 3;
+            }
+
+            const slideWidth = 100 / slidesToShow;
+            slides.forEach(slide => {
+                slide.style.minWidth = `${slideWidth}%`;
+            });
+
+            updateCarousel();
+        }
+
+        // Initialize
+        window.addEventListener('load', updateSlideWidth);
+        window.addEventListener('resize', updateSlideWidth);
+
+        // Auto-advance (optional)
+        let autoSlide = setInterval(() => moveSlide(1), 5000);
+
+        // Pause on hover
+        track.addEventListener('mouseenter', () => clearInterval(autoSlide));
+        track.addEventListener('mouseleave', () => {
+            autoSlide = setInterval(() => moveSlide(1), 5000);
+        });
+    </script>
+</section>
+</main>
+
+<footer id="footer" class="footer dark-background" style="background-color: #031633">
+      <div class="footer-photo text-center my-3">
+            <img src="{% static 'assets/img/chepngoy logo3.png' %}" alt="Footer Photo" style="width: 100px; height: auto; border-radius: 8px;">
         </div>
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="{% url 'index' %}" class="logo d-flex align-items-center">
+            <span class="sitename">Chepngoy Foundation</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p>30100, Eldoret, Kenya</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>254728133629</span></p>
+            <p><strong>Email:</strong> <span>info@example.com</span></p>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Footer Links</h4>
+          <ul>
+            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'index' %}">Home</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'about' %}">About us</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'causes' %}">Causes</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'events' %}">Event</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-12 footer-newsletter">
+            <h4>Our Newsletter</h4>
+            <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
+            <form id="newsletter-form" action="#" onsubmit="return showMessage()">
+                <div class="newsletter-form">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <input type="submit" value="Subscribe">
+                </div>
+                <div class="loading" style="display:none;">Loading...</div>
+                <div class="error-message" style="display:none;">Please enter a valid email address.</div>
+                <div class="sent-message" style="display:none;">Thank you! for your subscription this feature is coming soon!😒</div>
+            </form>
+        </div>
+
+
+      </div>
     </div>
 
     <div class="container copyright text-center mt-4">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">TechForge</strong> <span>All Rights Reserved</span>
-        </p>
-        <div class="credits">
-            <!-- All the links in the footer should remain intact. -->
-            <!-- You can delete the links only if you've purchased the pro version. -->
-            <!-- Licensing information: https://bootstrapmade.com/license/ -->
-            <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-            Designed by Techforge
-        </div>
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">TechForge</strong> <span>All Rights Reserved</span></p>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+         <a href="https://georgeslangat.netlify.app/">Designed by Techforge</a>
+      </div>
     </div>
 
-</footer>
+  </footer>
 
-<!-- Scroll Top -->
-<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-        class="bi bi-arrow-up-short"></i></a>
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-<!-- Preloader -->
-<div id="preloader"></div>
+  <!-- Preloader -->
+  <div id="preloader"></div>
 
-<!-- Vendor JS Files -->
-<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
 <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
 <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
@@ -170,6 +360,38 @@
 
 <!-- Main JS File -->
 <script src="{% static 'assets/js/main.js' %}"></script>
+<script>
+    function showMessage() {
+    const loading = document.querySelector('.loading');
+    const errorMessage = document.querySelector('.error-message');
+    const sentMessage = document.querySelector('.sent-message');
+    const emailInput = document.querySelector('input[name="email"]');
+
+    loading.style.display = 'block';
+    errorMessage.style.display = 'none';
+    sentMessage.style.display = 'none';
+
+    setTimeout(() => {
+        loading.style.display = 'none';
+        if (emailInput.value === '' || !validateEmail(emailInput.value)) {
+            errorMessage.style.display = 'block';
+        } else {
+            sentMessage.style.display = 'block';
+            emailInput.value = '';  // Clear the input field after successful submission
+        }
+    }, 1000); // Delay for loading effect
+
+    // Prevent actual form submission
+    return false;
+}
+
+// Email validation function
+function validateEmail(email) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+}
+
+</script>
 
 </body>
 
